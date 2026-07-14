@@ -1,4 +1,4 @@
-num  = 4511 
+num  = int(input("Enter a number to display the sum of it's digits : ")) 
 sum = 0
 while(num > 0):
     num1 = num % 10
