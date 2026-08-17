@@ -11,3 +11,9 @@ print(dictionary.get('Sun', 'N/A')) # Prints Sunny
 print(dictionary.get('Thurs', 'N/A')) # Prints N/A
 del dictionary['Wed'] # removes elements
 print(dictionary)
+
+
+#Loops in dictionaries
+for dict in dictionary:
+    weather = dictionary[dict]
+    print(f'The weather on {dict} is {weather}.')
