@@ -21,3 +21,8 @@ print(numbers[:]) # Gets a slice of whole lists and prints all elements
 print(numbers[:-1]) #prints 0,1,2,3
 numbers[2:4] = [25,35] # Assign new numbers 
 print(numbers) # Prints [0, 1, 25, 35, 4]
+
+
+# Length and sum of values in a list
+print(len(numbers))
+print(sum(numbers)) # It works if it only has numbers
