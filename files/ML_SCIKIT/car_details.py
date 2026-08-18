@@ -11,3 +11,8 @@ print(f'The length of the dataset is {len(dataset)}')
 print(dataset.head())
 
 
+#2. Preprocessing the dataset
+# Dropping the columns that we are not going to use
+dataset.drop(['name'], axis =1, inplace = True) # axis = 0 means dropping the rows and 1 means columns
+print(dataset.head())
+
