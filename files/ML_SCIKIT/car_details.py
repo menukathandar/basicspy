@@ -54,3 +54,8 @@ dataset['engine'] = pd.to_numeric(dataset['engine'])
 dataset['max_power'] = pd.to_numeric(dataset['max_power'])
 print(dataset.head())
 
+
+# Adding 'age' column and dropping the year column
+dataset['age'] = 2026 - dataset['year']
+dataset.drop(['year'], axis = 1, inplace = True) #inplace = true modifies the data tdirectly instead of creating a new copy
+print(dataset.head())
