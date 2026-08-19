@@ -75,8 +75,22 @@ print(dataset.owner.value_counts(), '\n')
 dataset['owner'] = dataset['owner'].replace({'First Owner': 1, 'Second Owner': 2, 'Third Owner': 3})
 print(dataset.head())
 
+print(f'The shape of the dataset before applying get_dummies is {dataset.shape}.')
+
 #Dealing with nominal values
 #(Transforming nominal variables into dummy variables)
 dataset = pd.get_dummies(dataset, columns = ['fuel','seller_type','transmission'])
 print(dataset.head())
-#Note: What get_dummies does is ,it turns one column into 4 new columns, one per category and make it look like true false false false
+#Note: What get_dummies does is ,it turns one column into 4 new columns, one per category and make it look like (true false false false)
+
+#Quick sanity check
+print(f'The shape of the dataset after applying get_dummies is {dataset.shape}.')
+
+#Defining the input variables and the target variable
+#print(dataset.columns) i printed this because we were using the array slicing stuff but we don't need it now as we are using the drop() method.
+x = dataset.drop('selling_price', axis = 1) # axis = 1 means drop a column not a row
+y = dataset['selling_price']
+
+#Quick sanity check
+print(x.shape)
+print(y.shape)
