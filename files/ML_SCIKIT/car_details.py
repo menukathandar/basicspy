@@ -74,3 +74,9 @@ print(dataset.owner.value_counts(), '\n')
 #(Transforming the strings to numbers)
 dataset['owner'] = dataset['owner'].replace({'First Owner': 1, 'Second Owner': 2, 'Third Owner': 3})
 print(dataset.head())
+
+#Dealing with nominal values
+#(Transforming nominal variables into dummy variables)
+dataset = pd.get_dummies(dataset, columns = ['fuel','seller_type','transmission'])
+print(dataset.head())
+#Note: What get_dummies does is ,it turns one column into 4 new columns, one per category and make it look like true false false false
