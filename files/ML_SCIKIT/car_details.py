@@ -99,3 +99,15 @@ print(y.shape)
 #Splitting the training and the testing dataset
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size = 0.1, random_state=123)
+
+#Applying normalization on both train and testing dataset
+#(Normalization is done because it puts every feature on same footing(0 to 1))
+#(eg: if age ranges from 0 to 100 and income ranges from 0 - 200,000, income will dominate the math
+#because it's numbers are bigger, not because it's more important)
+from sklearn.preprocessing import MinMaxScaler
+#learn min/max only from train
+norm = MinMaxScaler().fit(X_train)
+X_train_norm = norm.transform(X_train) #apply to train
+X_test_norm = norm.transform(X_test) #apply to test
+
+
