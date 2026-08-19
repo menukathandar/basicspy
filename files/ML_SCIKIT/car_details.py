@@ -118,4 +118,18 @@ test_score = model.score(X_test_norm, y_test)
 print(f'R2 of LR:{test_score}')
 
 #Approach 2: Train the model based on training dataset with cross validation and then evaluate the model based on testing dataset
+#1) Defining a 10 fold cross validation with data shufflling and set the random state with 123
+from sklearn.model_selection import KFold
+kfold = KFold(n_splits = 10, shuffle = True, random_state = 123) #set 10-fold cross validation after shuffle the dataset with random seed 123
+
+# running 10 fold cross validation and printing the average r-squared score based on the cross validation
+from sklearn.model_selection import cross_val_score
+#from sklearn.linear_model import LinearRegression (already imported before)
+
+lr = LinearRegression()
+#running the previously defined 10-fold validation on the dataset
+results = cross_val_score(lr, X_train_norm, y_train, cv = kfold)
+#printing the average r squared scores
+print(f'Average R2 of LR: {results.mean()}')
+
 
