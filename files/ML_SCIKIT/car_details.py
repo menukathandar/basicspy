@@ -69,3 +69,8 @@ print(dataset.fuel.value_counts(), '\n')
 print(dataset.seller_type.value_counts(), '\n')
 print(dataset.transmission.value_counts(), '\n')
 print(dataset.owner.value_counts(), '\n')
+
+# Dealing with ordinal variables
+#(Transforming the strings to numbers)
+dataset['owner'] = dataset['owner'].replace({'First Owner': 1, 'Second Owner': 2, 'Third Owner': 3})
+print(dataset.head())
