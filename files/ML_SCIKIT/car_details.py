@@ -94,3 +94,8 @@ y = dataset['selling_price']
 #Quick sanity check
 print(x.shape)
 print(y.shape)
+
+
+#Splitting the training and the testing dataset
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size = 0.1, random_state=123)
