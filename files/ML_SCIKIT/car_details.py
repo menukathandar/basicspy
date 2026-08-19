@@ -173,3 +173,11 @@ with open(pkl_filename, 'rb') as file:
 #Calculating the accuracy score and predicting the target values
 score = pickle_model.score(X_test_norm, y_test)
 print(f'R2 score: ', score)
+
+# Conclusion: 
+# 1. The overall performance is moderate not great (R2 = 0.59...) on the test set means the model
+#explains about 59% variations in used car prices. The remaining ~41% is unexplained by our features
+#(could be things like brand reputation, condition etc)
+
+# 2. The model is stable/consistent. The cross-validation gave nearly 0.63 across 10 different splits
+# so this performance is not a fluke from one lucky train/test split.
