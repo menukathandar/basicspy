@@ -62,3 +62,10 @@ print(dataset.head())
 
 #Getting a summary of numerical columns
 print(dataset.describe())
+
+#checking value count for the categorical variables
+#(Including column fuel, seller_type, transmission, owner)
+print(dataset.fuel.value_counts(), '\n')
+print(dataset.seller_type.value_counts(), '\n')
+print(dataset.transmission.value_counts(), '\n')
+print(dataset.owner.value_counts(), '\n')
