@@ -153,3 +153,7 @@ print(f'R2 in testing: {test_R2}')
 print(gs_lr_result.best_params_)
 # Output is {'fit_intercept': False, 'n_jobs': None}. Sanity check: if n_jobs = -1 would win it'd be fishy because n_jobs shouldn't affect accuracy at all
 
+# Predicting with trained model
+# This step is just a sanity check to look at model prediction for some real examples
+y_predict = gs_lr_result.best_estimator_.predict(X_test_norm[:5])
+print(y_predict)
