@@ -59,3 +59,6 @@ print(dataset.head())
 dataset['age'] = 2026 - dataset['year']
 dataset.drop(['year'], axis = 1, inplace = True) #inplace = true modifies the data tdirectly instead of creating a new copy
 print(dataset.head())
+
+#Getting a summary of numerical columns
+print(dataset.describe())
