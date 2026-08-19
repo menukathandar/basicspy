@@ -137,7 +137,7 @@ print(f'Average R2 of LR: {results.mean()}')
 from sklearn.model_selection import GridSearchCV 
 grid_params_lr = {
     'fit_intercept' : [True, False],
-    'n_jobs' : [None, -1]
+    'n_jobs' : [None, -1] # n_jobs does not affect accuracy at all, it only affects speed(how many cpu cores used for computation, none = 1 core and -1 = all cores)
 }
 lr = LinearRegression() #creates an instance for linearregression tool to use
 gs_lr_result = GridSearchCV(lr, grid_params_lr, cv = kfold).fit(X_train_norm, y_train)
@@ -145,4 +145,11 @@ print(gs_lr_result.best_score_)
 
 #Note: Both the values are same as it is LR but in case of decision trees, random forests or neural networks, hyperparameters can make a huge difference
 
+# Evaluating a trained model using testing dataset
+test_R2 = gs_lr_result.best_estimator_.score(X_test_norm, y_test)
+print(f'R2 in testing: {test_R2}')
+
+#Checking the parameter setting for the best selected model
+print(gs_lr_result.best_params_)
+# Output is {'fit_intercept': False, 'n_jobs': None}. Sanity check: if n_jobs = -1 would win it'd be fishy because n_jobs shouldn't affect accuracy at all
 
