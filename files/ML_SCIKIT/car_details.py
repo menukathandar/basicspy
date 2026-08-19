@@ -110,4 +110,12 @@ norm = MinMaxScaler().fit(X_train)
 X_train_norm = norm.transform(X_train) #apply to train
 X_test_norm = norm.transform(X_test) #apply to test
 
+#Approach 1: Train the model based on entire training dataset and then evaluate the model based on testing dataset
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X_train_norm, y_train)
+test_score = model.score(X_test_norm, y_test)
+print(f'R2 of LR:{test_score}')
+
+#Approach 2: Train the model based on training dataset with cross validation and then evaluate the model based on testing dataset
 
