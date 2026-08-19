@@ -132,4 +132,17 @@ results = cross_val_score(lr, X_train_norm, y_train, cv = kfold)
 #printing the average r squared scores
 print(f'Average R2 of LR: {results.mean()}')
 
+#Optimizing the LR models with cross validation
+#we say "here are the settings i want you to try, cross-validates each one, remember which scores best and hand me back the best model ready to use"- and GridSearchCV does that
+from sklearn.model_selection import GridSearchCV 
+grid_params_lr = {
+    'fit_intercept' : [True, False],
+    'n_jobs' : [None, -1]
+}
+lr = LinearRegression() #creates an instance for linearregression tool to use
+gs_lr_result = GridSearchCV(lr, grid_params_lr, cv = kfold).fit(X_train_norm, y_train)
+print(gs_lr_result.best_score_)
+
+#Note: Both the values are same as it is LR but in case of decision trees, random forests or neural networks, hyperparameters can make a huge difference
+
 
