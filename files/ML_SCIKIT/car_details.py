@@ -157,3 +157,19 @@ print(gs_lr_result.best_params_)
 # This step is just a sanity check to look at model prediction for some real examples
 y_predict = gs_lr_result.best_estimator_.predict(X_test_norm[:5])
 print(y_predict)
+
+# save and load a trained model
+import pickle
+
+# saving to file in current working directory
+pkl_filename = "lr_model_lab3.pkl"
+with open(pkl_filename, 'wb') as file:
+    pickle.dump(gs_lr_result.best_estimator_, file)
+
+#load from file
+with open(pkl_filename, 'rb') as file:
+    pickle_model = pickle.load(file)
+
+#Calculating the accuracy score and predicting the target values
+score = pickle_model.score(X_test_norm, y_test)
+print(f'R2 score: ', score)
